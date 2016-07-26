@@ -8,6 +8,8 @@ export default function config($stateProvider, $urlRouterProvider){
             url: '/',
             templateUrl: 'templates/home.template.htm'
         });
+
+    $urlRouterProvider.otherwise('/');
 }
 
 config.$inject = ['$stateProvider', '$urlRouterProvider'];
