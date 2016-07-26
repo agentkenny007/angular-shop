@@ -4,10 +4,22 @@ export default function config($stateProvider, $urlRouterProvider){
             abstract: true,
             templateUrl: 'templates/layout.template.htm'
         })
+        // States pertaining to the store
         .state('root.home', {
-            url: '/',
-            templateUrl: 'templates/home.template.htm'
-        });
+          url: '/',
+          templateUrl: 'templates/home.tpl.html'
+        })
+        .state('root.addProduct', {
+          url: '/add-product',
+          templateUrl: 'templates/add-product.tpl.html'
+        })
+
+        // States pertaining to users
+        .state('root.register', {
+          url: '/register',
+          templateUrl: 'templates/register.tpl.html',
+          controller: 'RegisterController as vm'
+        })
 
     $urlRouterProvider.otherwise('/');
 }
