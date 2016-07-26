@@ -1,27 +1,34 @@
 export default function config($stateProvider, $urlRouterProvider){
-    $stateProvider
-        .state('root', {
-            abstract: true,
-            templateUrl: 'templates/layout.template.htm'
-        })
-        // States pertaining to the store
-        .state('root.home', {
-          url: '/',
-          templateUrl: 'templates/home.tpl.html'
-        })
-        .state('root.addProduct', {
-          url: '/add-product',
-          templateUrl: 'templates/add-product.tpl.html'
-        })
+  $stateProvider
+    .state('root', {
+      abstract: true,
+      templateUrl: 'templates/layout.tpl.html'
+    })
 
-        // States pertaining to users
-        .state('root.register', {
-          url: '/register',
-          templateUrl: 'templates/register.tpl.html',
-          controller: 'RegisterController as vm'
-        })
+    // States pertaining to the store
+    .state('root.home', {
+      url: '/',
+      templateUrl: 'templates/home.tpl.html'
+    })
+    .state('root.addProduct', {
+      url: '/add-product',
+      templateUrl: 'templates/add-product.tpl.html',
+      controller: 'AddController as vm'
+    })
 
-    $urlRouterProvider.otherwise('/');
+    // States pertaining to users
+    .state('root.register', {
+      url: '/register',
+      templateUrl: 'templates/register.tpl.html',
+      controller: 'RegisterController as vm'
+    })
+    .state('root.login', {
+      url: '/login',
+      templateUrl: 'templates/login.tpl.html',
+      controller: 'LoginController as vm'
+    })
+
+  $urlRouterProvider.otherwise('/');
 }
 
 config.$inject = ['$stateProvider', '$urlRouterProvider'];
